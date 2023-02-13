@@ -23,5 +23,6 @@ COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 RUN gem install bundler
 RUN bundle install
+RUN bundle exec rspec
 
 COPY . $INSTALL_PATH
