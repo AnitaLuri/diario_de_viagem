@@ -1,4 +1,4 @@
-@import "bootstrap";
+@import 'bootstrap';
 
 .body {
   font-family: 'Poppins', sans-serif;
@@ -7,14 +7,32 @@
 
 .navbar {
   background-color: rgba(60, 73, 65, 1);
-  color: white;
 }
 
 .navbar-brand {
   color: white;
+  margin-right: 80px;
 }
 
-.capa {
-  max-width: 100%;
-  margin-top: 15px;
+.nav-item {
+  margin: 0 25px;
+}
+
+.nav-link {
+  color: white;
+  opacity: 75%;
+}
+
+.feed {
+  margin: 5px;
+  padding: 5px;
+  border: 1px;
+  border-color: rgba(211, 205, 189, 1);
+  border-style: solid;
+  border-radius: 3px;
+}
+
+.card-img {
+  border-radius: 3px;
+  max-height: 200px;
 }

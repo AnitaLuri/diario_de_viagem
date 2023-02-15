@@ -1,3 +1,5 @@
 class HomeController < ApplicationController
-  def welcome; end
+  def welcome
+    @posts = Post.last(3)
+  end
 end
