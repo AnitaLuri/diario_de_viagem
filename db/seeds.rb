@@ -1,5 +1,6 @@
 praia = Category.create!(name: 'Praia')
 cidade = Category.create!(name: 'Cidade')
+montanha = Category.create!(name: 'Montanhas')
 
 post_a = Post.create!(title: 'Big Sur - Rota 1', country: 'USA', state: 'CA', city: 'Big Sur',
                       category: praia, text: 'Big Sur é uma região localizada no centro da
@@ -16,3 +17,12 @@ post_c = Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Parat
                       a Serra da Bocaina ao fundo.')
 image_c_path = Rails.root.join('spec/support/images/paraty.jpg')
 post_c.image.attach(io: image_c_path.open, filename: 'paraty.jpg')
+post_d = Post.create!(title: 'São Paulo', country: 'BRA', state: 'SP', city: 'São Paulo',
+                      category: cidade, text: 'São Paulo é uma região localizada no centro da')
+image_d_path = Rails.root.join('spec/support/images/sp.jpg')
+post_d.image.attach(io: image_d_path.open, filename: 'sp.jpg')
+post_e = Post.create!(title: 'São Thome', country: 'BRA', state: 'MG', city: 'São Thome das Letras',
+                      category: montanha, text: 'São Thome das Letras é uma cidade mística cheia de 
+                      energias positivas e cachoeiras')
+image_e_path = Rails.root.join('spec/support/images/stl.jpg')
+post_e.image.attach(io: image_e_path.open, filename: 'stl.jpg')
