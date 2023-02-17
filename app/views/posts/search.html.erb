@@ -1,0 +1,36 @@
+<div class="form">
+  <%= form_with(url: search_posts_path, method: :get) do |f| %>
+    <div>
+      <%= f.label :query, 'Buscar por Destino' %>
+      <%= f.text_field :query,  class:"form-input"%>
+      <%= f.submit 'Buscar', class:"button" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="border">
+  <% if @posts.any? %>
+    <h2>Resultado da busca: <%= @search %> </h2>
+    <div class="container text-center">
+      <div class="row align-items-center">
+        <% @posts.each do |post| %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <% if post.image.attached? %>
+                <%= image_tag post.image, class:"card-img"%>
+              <% end %>
+              <div class="card-body">
+                <h4><%= link_to post.title, root_path, class: "link" %></h4>
+                <p class="card-text"><%= post.state %> - <%= post.city %></p>
+                <small class="text-muted"><%= post.category.name%></small>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <h2>Nenhum resultado encontrado para: <%= @search %> </h2>
+    <%= link_to 'Voltar', posts_path, class:"button" %>
+  <% end %>
+</div>

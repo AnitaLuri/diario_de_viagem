@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Usuário vê lista de postagens' do
-  it 'com sucesso' do 
+  it 'com sucesso' do
     praia = Category.create!(name: 'Praia')
     cidade = Category.create!(name: 'Cidade')
     post_a = Post.create!(title: 'Big Sur - Rota 1', country: 'USA', state: 'CA', city: 'Big Sur',
