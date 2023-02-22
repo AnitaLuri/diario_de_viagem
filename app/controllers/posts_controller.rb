@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def search
     @search = params['query']
     @posts = Post.where('country LIKE ?', "%#{@search.upcase}%")

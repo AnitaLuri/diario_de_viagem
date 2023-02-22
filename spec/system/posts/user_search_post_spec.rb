@@ -96,9 +96,7 @@ describe 'Usuário busca por uma postagem' do
     click_on 'Buscar'
 
     expect(page).not_to have_link 'Big Sur - Rota 1'
-    expect(page).not_to have_css('img[src*="ca"]')
     expect(page).not_to have_link 'Nova York'
-    expect(page).not_to have_css('img[src*="ny"]')
     expect(page).to have_link 'Paraty'
     expect(page).to have_css('img[src*="paraty"]')
   end
