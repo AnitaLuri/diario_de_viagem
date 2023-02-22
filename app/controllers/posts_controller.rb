@@ -13,4 +13,26 @@ class PostsController < ApplicationController
     @posts = Post.where('state LIKE ?', "%#{@search.upcase}%") unless @posts.any?
     @posts = Post.where('city LIKE ?', "%#{@search}%") unless @posts.any?
   end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+    if @post.save
+      flash[:notice] = t('.success')
+      redirect_to @post
+    else
+      flash.now[:notice] = t('.failure')
+      render 'new'
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :country, :state, :city,
+                                 :category_id, :text, :image)
+  end
 end

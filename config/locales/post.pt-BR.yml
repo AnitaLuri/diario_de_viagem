@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      post: Postagem
+    attributes:
+      post:
+        title: Título
+        country: País
+        state: Estado
+        city: Cidade
+        category: Categoria
+        category_id: Categoria
+        text: Conteúdo
+        restaurant_tip: Dica de Restaurante
+        tour_tip: Dica de Passeio
+        image: Imagem
+  posts:
+    create:
+      success: 'Postagem adicionada com sucesso!'
+      failure: 'Postagem não foi criada'
+    new:
+      authorization_failure: 'Apenas usuários administradores tem acesso a essa função'
