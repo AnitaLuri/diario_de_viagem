@@ -1,9 +1,9 @@
 <div class="border">
-  <div class="container text-end">
+  <div class="container text-start">
     <div class="row align-items-center">
       <div class="col">
         <% if @post.image.attached? %>
-          <%= image_tag @post.image, class:"card-img"%>
+          <%= image_tag @post.image, class:"card-img", width: '590px', height: '480px'%>
         <% end %>
       </div>
       <div class="col">

@@ -19,7 +19,7 @@
         <div class="col">
           <div class="card shadow-sm">
             <% if post.image.attached? %>
-              <%= image_tag post.image, class:"card-img"%>
+              <%= image_tag post.image, class:"card-img-small"%>
             <% end %>
             <div class="card-body">
               <h4><%= link_to post.title, post, class: "link" %></h4>
