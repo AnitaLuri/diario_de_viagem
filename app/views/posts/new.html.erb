@@ -1,5 +1,13 @@
 <div class="border">
   <h2>Adicionar nova Postagem</h2>
+  <% if(@post.errors.any?) %>
+    <p>Verifique os erros: </p>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <div class="form">
     <%= form_with(model: @post) do |f| %>
       <div class="mb-3">
@@ -18,7 +26,7 @@
       <div class="mb-3">
         <%= f.label :country, class: "form-label fw-semibold" %>
         <%= f.text_field :country, class: "form-control" %>
-        <% if(@post.errors.include? :ticountrytle) %>
+        <% if(@post.errors.include? :country) %>
           <div class=" my-3 alert alert-danger">
             <ul>
               <% @post.errors.full_messages_for(:country).each do |msg| %>

@@ -1,0 +1,5 @@
+pt-BR:
+  posts:
+    create:
+      success: 'Postagem adicionada com sucesso!'
+      failure: 'Postagem não foi criada'
