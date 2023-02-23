@@ -1,0 +1,133 @@
+<div class="border">
+  <h2>Adicionar nova Postagem</h2>
+  <div class="form">
+    <%= form_with(model: @post) do |f| %>
+      <div class="mb-3">
+        <%= f.label :title, class: "form-label fw-semibold" %>
+        <%= f.text_field :title, class: "form-control" %>
+        <% if(@post.errors.include? :title) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:title).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :country, class: "form-label fw-semibold" %>
+        <%= f.text_field :country, class: "form-control" %>
+        <% if(@post.errors.include? :country) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:country).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :state, class: "form-label fw-semibold" %>
+        <%= f.text_field :state, class: "form-control" %>
+        <% if(@post.errors.include? :state) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:state).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :city, class: "form-label fw-semibold" %>
+        <%= f.text_field :city, class: "form-control" %>
+        <% if(@post.errors.include? :city) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:city).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :category_id, class: "form-label fw-semibold" %>
+        <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control" %>
+        <% if(@post.errors.include? :category_id) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:category_id).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :text, class: "form-label fw-semibold" %>
+        <%= f.text_area :text, class: "form-control" %>
+        <% if(@post.errors.include? :text) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:text).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <% if @post.image.attached? %>      
+          <p style="font-size: 12px">Imagem cadastrada:</p>
+          <%= image_tag @post.image, style: "width: 80px; display: block" %>
+        <% end %>
+      </div><br>
+      <div class="mb-3">
+        <%= f.label :image, class: "form-label fw-semibold" %>
+        <%= f.file_field :image, accept: 'image/png, image/jpeg, image/svg', class: "form-control" %>
+        <% if(@post.errors.include? :image) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:image).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :restaurant_tip, class: "form-label fw-semibold" %>
+        <%= f.text_area :restaurant_tip, class: "form-control" %>
+        <% if(@post.errors.include? :restaurant_tip) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:restaurant_tip).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :tour_tip, class: "form-label fw-semibold" %>
+        <%= f.text_area :tour_tip, class: "form-control" %>
+        <% if(@post.errors.include? :tour_tip) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:tour_tip).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="d-grid mb-3">
+        <%= f.submit class: "button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

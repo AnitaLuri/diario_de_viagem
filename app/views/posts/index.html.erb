@@ -12,6 +12,12 @@
   <% end %>
 </div>
 
+<div class="my-3">
+  <% if current_user.try(:admin?) %>
+    <%= link_to 'Adicionar Postagem', new_post_path, class: "btn btn-dark " %>
+  <% end %>
+</div>
+
 <div class="border">
   <div class="container text-center">
     <div class="row align-items-center">

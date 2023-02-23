@@ -17,6 +17,11 @@
     <header>
       <%= render 'layouts/navbar' %>
     </header>
-    <%= yield %>
+     <div class="container">
+        <div class="my-3" >
+          <%= render 'layouts/flash_messages' %>
+        </div>
+        <%= yield %>
+      </div>
   </body>
 </html>
