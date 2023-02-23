@@ -12,9 +12,9 @@
   <% end %>
 </div>
 
-<div class="my-3">
+<div class="form">
   <% if current_user.try(:admin?) %>
-    <%= link_to 'Adicionar Postagem', new_post_path, class: "btn btn-dark " %>
+    <%= link_to 'Adicionar Postagem', new_post_path, class: "button " %>
   <% end %>
 </div>
 

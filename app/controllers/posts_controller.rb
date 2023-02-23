@@ -26,8 +26,8 @@ class PostsController < ApplicationController
       flash[:notice] = t('.success')
       redirect_to @post
     else
-      flash.now[:alert] = t('.failure')
-      render 'new'
+    flash.now[:alert] = t('.failure')
+    render 'new'
     end
   end
 
