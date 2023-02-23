@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :check_admin, only: %i[new create]
-  
+
   def index
     @posts = Post.all
   end
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new()
+    @post = Post.new
   end
 
   def create
@@ -26,8 +26,8 @@ class PostsController < ApplicationController
       flash[:notice] = t('.success')
       redirect_to @post
     else
-    flash.now[:alert] = t('.failure')
-    render 'new'
+      flash.now[:alert] = t('.failure')
+      render 'new'
     end
   end
 

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def check_admin
     redirect_to root_url, alert: t('.authorization_failure') if current_user.admin? == false
   end
-  
+
   protected
 
   def configure_permitted_parameters

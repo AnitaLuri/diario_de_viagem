@@ -5,39 +5,39 @@ RSpec.describe Post, type: :model do
     it 'falso quando título fica em branco' do
       praia = Category.create!(name: 'Praia')
       post = Post.new(title: '', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
-                          restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
+                      text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
+                      restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
 
       expect(post.valid?).to eq false
     end
     it 'falso quando país fica em branco' do
       praia = Category.create!(name: 'Praia')
       post = Post.new(title: 'Paraty', country: '', state: 'RJ', city: 'Paraty', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
-                          restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
+                      text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
+                      restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
 
       expect(post.valid?).to eq false
     end
     it 'falso quando estado fica em branco' do
       praia = Category.create!(name: 'Praia')
       post = Post.new(title: 'Paraty', country: 'BRA', state: '', city: 'Paraty', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
-                          restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
+                      text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
+                      restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
 
       expect(post.valid?).to eq false
     end
     it 'falso quando cidade fica em branco' do
       praia = Category.create!(name: 'Praia')
       post = Post.new(title: 'Paraty', country: 'BRA', state: 'RJ', city: '', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
-                          restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
+                      text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
+                      restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
 
       expect(post.valid?).to eq false
     end
     it 'falso quando categoria fica em branco' do
       post = Post.new(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: nil,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
-                          restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
+                      text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
+                      restaurant_tip: 'Acarajé na praça central', tour_tip: 'Paraty-mirim')
 
       expect(post.valid?).to eq false
     end
@@ -86,8 +86,8 @@ RSpec.describe Post, type: :model do
     it 'verdadeiro quando dica de passeio fica em branco' do
       praia = Category.create!(name: 'Praia')
       post = Post.new(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
-                          restaurant_tip: 'Acarajé na praça central', tour_tip: '')
+                      text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
+                      restaurant_tip: 'Acarajé na praça central', tour_tip: '')
 
       expect(post.valid?).to eq true
     end

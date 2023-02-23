@@ -25,7 +25,6 @@ describe 'Usuário faz nova postagem' do
     expect(current_path).to eq(post_path(Post.last.id))
     expect(page).to have_content 'Sorocotuba'
     expect(page).to have_content 'SP - Guaruja'
-    expect(page).to have_content 'Praia'
     expect(page).to have_content 'A Praia do Sorocotuba está localizada entre as praias da Enseada e Pernambuco'
     expect(page).to have_css('img[src*="sorocotuba.jpeg"]')
     expect(page).to have_content 'Dica de Restaurante: Não tem'
