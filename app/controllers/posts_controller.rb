@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :check_admin, only: %i[new create]
+  
   def index
     @posts = Post.all
   end
@@ -33,6 +35,7 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :country, :state, :city,
-                                 :category_id, :text, :image)
+                                 :category_id, :text, :image, :restaurant_tip,
+                                 :tour_tip)
   end
 end

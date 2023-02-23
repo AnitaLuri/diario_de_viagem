@@ -1,13 +1,5 @@
 <div class="border">
   <h2>Adicionar nova Postagem</h2>
-  <% if(@post.errors.any?) %>
-    <p>Verifique os erros: </p>
-    <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
   <div class="form">
     <%= form_with(model: @post) do |f| %>
       <div class="mb-3">
@@ -107,7 +99,32 @@
           </div>
         <% end %>
       </div>
-
+      <div class="mb-3">
+        <%= f.label :restaurant_tip, class: "form-label fw-semibold" %>
+        <%= f.text_area :restaurant_tip, class: "form-control" %>
+        <% if(@post.errors.include? :restaurant_tip) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:restaurant_tip).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :tour_tip, class: "form-label fw-semibold" %>
+        <%= f.text_area :tour_tip, class: "form-control" %>
+        <% if(@post.errors.include? :tour_tip) %>
+          <div class=" my-3 alert alert-danger">
+            <ul>
+              <% @post.errors.full_messages_for(:tour_tip).each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
       <div class="d-grid mb-3">
         <%= f.submit class: "button" %>
       </div>

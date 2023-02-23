@@ -17,6 +17,8 @@ describe 'Usuário faz nova postagem' do
     select 'Praia', from: 'Categoria'
     fill_in 'Conteúdo', with: 'A Praia do Sorocotuba está localizada entre as praias da Enseada e Pernambuco'
     attach_file 'Imagem', Rails.root.join('spec/support/images/sorocotuba.jpeg')
+    fill_in 'Dica de Restaurante', with: 'Não tem'
+    fill_in 'Dica de Passeio', with: 'Nenhuma'
     click_on 'Criar Postagem'
 
     expect(page).to have_content 'Postagem adicionada com sucesso!'
@@ -26,6 +28,8 @@ describe 'Usuário faz nova postagem' do
     expect(page).to have_content 'Praia'
     expect(page).to have_content 'A Praia do Sorocotuba está localizada entre as praias da Enseada e Pernambuco'
     expect(page).to have_css('img[src*="sorocotuba.jpeg"]')
+    expect(page).to have_content 'Dica de Restaurante: Não tem'
+    expect(page).to have_content 'Dica de Passeio: Nenhuma'
   end
   it 'faltando informações' do
     user = User.create!(email: 'admin@email.com', password: 'password', name: 'Anita', role: :admin)
