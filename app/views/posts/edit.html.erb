@@ -1,0 +1,7 @@
+<div class="border">
+  <h2>Editar Postagem <%= @post.title  %></h2>
+  <div id="back" class="text-end"> 
+    <%= link_to 'Voltar', post_path(@post) , type:"button", class:"btn btn-outline-dark" %>
+  </div>
+  <%= render 'form' %>
+</div>
