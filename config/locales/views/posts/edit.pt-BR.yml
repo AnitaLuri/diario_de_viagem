@@ -1,0 +1,5 @@
+pt-BR:
+  posts:
+    update:
+      update_success: 'Postagem atualizada com sucesso!'
+      update_failure: 'Postagem não foi atualizada'

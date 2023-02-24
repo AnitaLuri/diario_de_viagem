@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
-  before_action :check_admin, only: %i[new create]
+  before_action :check_admin, only: %i[new create edit update]
+  before_action :set_post, only: %i[show edit update]
 
   def index
     @posts = Post.all
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+  def show; end
 
   def search
     @search = params['query']
@@ -20,6 +19,8 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit; end
+
   def create
     @post = Post.new(post_params)
     if @post.save
@@ -31,7 +32,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    if @post.update(post_params)
+      flash[:notice] = t('.update_success')
+      redirect_to @post
+    else
+      flash.now[:alert] = t('.update_failure')
+      render 'edit'
+    end
+  end
+
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :country, :state, :city,

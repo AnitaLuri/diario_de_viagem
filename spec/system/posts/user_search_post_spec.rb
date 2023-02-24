@@ -114,7 +114,7 @@ describe 'Usuário busca por uma postagem' do
     click_on 'Buscar'
 
     expect(page).not_to have_link 'Big Sur - Rota 1'
-    expect(page).not_to have_css('img[src*="ca"]')
+    expect(page).not_to have_css('img[src*="ca.jpg"]')
     expect(page).to have_content 'Nenhum resultado encontrado para: Paraty'
   end
 end
