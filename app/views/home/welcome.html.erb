@@ -7,9 +7,11 @@
     <div class="row align-items-center">
       <% @posts.each do |post| %>
         <div class="col">
-          <% if post.image.attached? %>
-            <%= image_tag post.image, class:"card-img"%>
-          <% end %>
+          <div class="card">
+            <% if post.image.attached? %>
+              <%= image_tag post.image, class:"card-img-small"%>
+            <% end %>
+          </div>
           <%= post.title %>
         </div>
       <% end %>

@@ -32,13 +32,22 @@
   border-radius: 3px;
 }
 
-.card-img-small {
-  border-radius: 3px;
-  max-height: 200px;
+.card {
+  margin: 5px;
 }
 
 .card-img {
   border-radius: 3px;
+}
+
+.card-img-m {
+  border: 3px solid #fff;
+  border-radius: 3px;
+}
+
+.card-img-small {
+  border-radius: 3px;
+  max-height: 200px;
 }
 
 .title {
