@@ -25,28 +25,34 @@
 
 .border {
   margin: 10px 5px 10px 5px;
-  padding: 5px;
+  padding: 20px;
   border: 1px;
   border-color: rgba(211, 205, 189, 1);
   border-style: solid;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .card {
   margin: 5px;
 }
 
+.card-small {
+  margin: 5px;
+  max-width: 260px;
+  max-height: 250px;
+}
+
 .card-img {
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .card-img-m {
   border: 3px solid #fff;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .card-img-small {
-  border-radius: 3px;
+  border-radius: 4px;
   max-height: 200px;
 }
 
@@ -57,6 +63,7 @@
 .link {
   color: rgba(60, 73, 65, 1);
   text-decoration: none;
+  --bs-link-hover-color: rgb(136, 170, 73);
 }
 
 .form {
@@ -78,4 +85,17 @@
   border-color: rgba(138, 150, 76, 1);
   border-style: solid;
   border-radius: 3px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0.65;
+  margin: 5px;
+}
+
+.itens {
+  margin: 4px 8px;
 }
