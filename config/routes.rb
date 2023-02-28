@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show, :new, :create, :edit, :update] do
     get 'search', on: :collection
   end
+
+  resources :profiles, only: [:index, :show]
 end
