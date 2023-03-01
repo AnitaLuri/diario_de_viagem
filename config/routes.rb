@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:index, :show]
+
+  resources :comments, only: [:new, :create]
 end

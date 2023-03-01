@@ -24,6 +24,31 @@
         <%= link_to 'Editar', edit_post_path(@post.id), class: "btn btn-outline-dark" %>
       <% end %>
     </div>
+  </div>
+</div>
+<div class="border">
+  <div class="container text-start">
+    <% if user_signed_in? %>
+      <div id="comment-form">
+        <%= form_with(model: Comment.new) do |f| %>
+          <div class="mb-3">
+            <%= f.label :comment_text, class: "form-label fw-semibold" %>
+            <%= f.text_area :comment_text, class: "form-control" %>
+          </div>
+          <div class="d-grid mb-3">
+            <%= f.submit 'Incluir comentário', class: "button" %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <h3 class="title">Faça login para compartilhar sua experiência!</h3>
+    <% end %>
 
+    <div class="card-body">
+      <% @comments.each do |comment| %>
+        <%= comment.user.name %>
+        <%= comment.comment_text %>
+      <% end %>
+    </div>
   </div>
 </div>

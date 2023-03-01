@@ -6,7 +6,9 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
+  def show
+    @comments = @post.comments
+  end
 
   def search
     @search = params['query']
