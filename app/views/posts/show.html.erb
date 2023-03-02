@@ -30,7 +30,7 @@
   <div class="container text-start">
     <% if user_signed_in? %>
       <div id="comment-form">
-        <%= form_with(model: Comment.new) do |f| %>
+        <%= form_with(model: [@post, @comment]) do |f| %>
           <div class="mb-3">
             <%= f.label :comment_text, class: "form-label fw-semibold" %>
             <%= f.text_area :comment_text, class: "form-control" %>
@@ -41,14 +41,19 @@
         <% end %>
       </div>
     <% else %>
-      <h3 class="title">Faça login para compartilhar sua experiência!</h3>
+      <h4 class="title">Faça login para compartilhar sua experiência!</h4>
     <% end %>
 
-    <div class="card-body">
-      <% @comments.each do |comment| %>
-        <%= comment.user.name %>
-        <%= comment.comment_text %>
-      <% end %>
-    </div>
-  </div>
+  <% if @comments.any? %>
+    <h4 class="title">Outros comentários!</h4>
+    <% @comments.each do |c| %>
+      <div class='comment-box'>
+        <div id="title-comment">
+          <h4 class="title"><%= c.user.name %> </h4> <p>-  <%= c.created_at.strftime("%d/%m/%Y-%H:%M") %></p>
+        </div>
+        <br />
+        <p><%= c.comment_text %></p>
+      </div>
+    <% end %>
+  <% end %>
 </div>

@@ -30,8 +30,8 @@ describe 'Usuário adiciona uma comentário a uma postagem'do
       click_on 'Incluir comentário'
     end
 
-    expect(current_path).to eq posts_path(post.id)
-    expect(page).to have_content 'Outras experiências!'
+    expect(current_path).to eq post_path(post.id)
+    expect(page).to have_content 'Outros comentários!'
     expect(page).to have_content 'Maria'
     expect(page).to have_content 'Bom destino para a familia!'
   end
