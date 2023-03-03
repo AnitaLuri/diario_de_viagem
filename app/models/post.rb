@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :category
 
   has_one_attached :image
-  has_many :comments
+  has_many :comments, dependent: nil
 
   validates :title, :country, :state, :city, :text, presence: true
   validates :country, length: { is: 3 }

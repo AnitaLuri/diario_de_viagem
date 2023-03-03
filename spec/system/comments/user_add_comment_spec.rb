@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe 'Usuário adiciona uma comentário a uma postagem'do
+describe 'Usuário adiciona uma comentário a uma postagem' do
   it 'e deve estar autenticado' do
     praia = Category.create!(name: 'Praia')
     post = Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
+                        text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
     image_c_path = Rails.root.join('spec/support/images/paraty.jpg')
     post.image.attach(io: image_c_path.open, filename: 'paraty.jpg')
 
@@ -18,7 +18,7 @@ describe 'Usuário adiciona uma comentário a uma postagem'do
     user = User.create!(email: 'maria@email.com', password: 'password', name: 'Maria', role: :regular)
     praia = Category.create!(name: 'Praia')
     post = Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
+                        text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
     image_c_path = Rails.root.join('spec/support/images/paraty.jpg')
     post.image.attach(io: image_c_path.open, filename: 'paraty.jpg')
 
@@ -39,7 +39,7 @@ describe 'Usuário adiciona uma comentário a uma postagem'do
     user = User.create!(email: 'maria@email.com', password: 'password', name: 'Maria', role: :regular)
     praia = Category.create!(name: 'Praia')
     post = Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
+                        text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
     image_c_path = Rails.root.join('spec/support/images/paraty.jpg')
     post.image.attach(io: image_c_path.open, filename: 'paraty.jpg')
 
