@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      comment: 
+    attributes:
+      comment:
+        user: Usuário
+        user_id: Usuário
+        post: Postagem
+        post_id: Postagem
+        comment_text: Comentário
+  comments:
+    create:
+      success: 'Comentário adicionado com sucesso!'
+      failure: 'Comentário não foi criado'
+    new:
+      authorization_failure: 'Apenas usuários autenticados tem acesso a essa função'
+    destroy:
+      destroy_success: 'Comentário excluido com sucesso!'
