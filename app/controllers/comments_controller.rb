@@ -8,9 +8,17 @@ class CommentsController < ApplicationController
       flash[:notice] = t('.success')
       redirect_to post_path(@post.id)
     else
-      flash.now[:alert] = t('.failure')
-      render post_path(@post.id)
+      flash[:alert] = t('.failure')
+      redirect_to post_path(@post.id)
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    @comment.destroy
+    flash[:notice] = t('.destroy_success')
+    redirect_to post_path(@post)
   end
 
   private

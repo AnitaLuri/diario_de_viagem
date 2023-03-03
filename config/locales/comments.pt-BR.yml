@@ -11,7 +11,9 @@ pt-BR:
         comment_text: Comentário
   comments:
     create:
-      success: 'Comentário adicionada com sucesso!'
-      failure: 'Comentário não foi criada'
+      success: 'Comentário adicionado com sucesso!'
+      failure: 'Comentário não foi criado'
     new:
       authorization_failure: 'Apenas usuários autenticados tem acesso a essa função'
+    destroy:
+      destroy_success: 'Comentário excluido com sucesso!'

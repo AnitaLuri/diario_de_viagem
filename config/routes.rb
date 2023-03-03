@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
 
+  resources :comments, only: [:destroy]
+
   resources :profiles, only: [:index, :show]
 
  

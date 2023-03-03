@@ -1,56 +1,53 @@
 require 'rails_helper'
 
-describe 'Usuário adiciona uma comentário a uma postagem'do
-  it 'e deve estar autenticado' do
-    praia = Category.create!(name: 'Praia')
-    post = Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
-                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
-    image_c_path = Rails.root.join('spec/support/images/paraty.jpg')
-    post.image.attach(io: image_c_path.open, filename: 'paraty.jpg')
-
-    visit root_path
-    click_on 'Paraty'
-
-    expect(page).not_to have_button 'Incluir comentário'
-    expect(page).to have_content 'Faça login para compartilhar sua experiência!'
-  end
-  it 'com sucesso' do
+describe 'Usuário exclui um comentário' do
+  it 'com sucesso' do 
     user = User.create!(email: 'maria@email.com', password: 'password', name: 'Maria', role: :regular)
     praia = Category.create!(name: 'Praia')
     post = Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
                           text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
     image_c_path = Rails.root.join('spec/support/images/paraty.jpg')
     post.image.attach(io: image_c_path.open, filename: 'paraty.jpg')
+    comment =  Comment.create!(user: user, post: post, comment_text: 'A praia estava limpa e vazia')
 
     login_as(user)
     visit root_path
     click_on 'Paraty'
-    within '#comment-form' do
-      fill_in 'Comentário', with: 'Bom destino para a familia!'
-      click_on 'Incluir comentário'
-    end
+    click_on 'Excluir'
 
-    expect(current_path).to eq post_path(post.id)
-    expect(page).to have_content 'Outros comentários!'
-    expect(page).to have_content 'Maria'
-    expect(page).to have_content 'Bom destino para a familia!'
+    expect(page).to have_content 'Comentário excluido com sucesso!'
   end
-  it 'e o texto não pode ficar em branco' do
-    user = User.create!(email: 'maria@email.com', password: 'password', name: 'Maria', role: :regular)
+  it 'e deve ser o autor' do 
+    maria = User.create!(email: 'maria@email.com', password: 'password', name: 'Maria', role: :regular)
+    joao = User.create!(email: 'joao@email.com', password: 'password', name: 'João', role: :regular)
     praia = Category.create!(name: 'Praia')
     post = Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
                           text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
     image_c_path = Rails.root.join('spec/support/images/paraty.jpg')
     post.image.attach(io: image_c_path.open, filename: 'paraty.jpg')
+    comment =  Comment.create!(user: joao, post: post, comment_text: 'A praia estava limpa e vazia')
+
+    login_as(maria)
+    visit root_path
+    click_on 'Paraty'
+
+    expect(page).not_to have_button 'Excluir'
+  end
+  it 'e é administrador' do 
+    user = User.create!(email: 'admin@email.com', password: 'password', name: 'Anita', role: :admin)
+    maria = User.create!(email: 'maria@email.com', password: 'password', name: 'Maria', role: :regular)
+    praia = Category.create!(name: 'Praia')
+    post = Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
+                          text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio')
+    image_c_path = Rails.root.join('spec/support/images/paraty.jpg')
+    post.image.attach(io: image_c_path.open, filename: 'paraty.jpg')
+    comment =  Comment.create!(user: maria, post: post, comment_text: 'A praia estava limpa e vazia')
 
     login_as(user)
     visit root_path
     click_on 'Paraty'
-    within '#comment-form' do
-      fill_in 'Comentário', with: ''
-      click_on 'Incluir comentário'
-    end
+    click_on 'Excluir'
 
-    expect(page).to have_content 'Comentário não foi criado'
+    expect(page).to have_content 'Comentário excluido com sucesso!'
   end
 end
