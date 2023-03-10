@@ -6,6 +6,10 @@ services:
     container_name: diario-de-viagem
     ports:
       - 3000:3000
+    links:
+      - db
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
     volumes:
       - .:/opt/app
     environment: 
@@ -23,5 +27,3 @@ services:
       - diario_de_viagem_data:/var/lib/postgresql/data
 volumes:
   diario_de_viagem_data:
-networks:
-  minha-rede: {}

@@ -1,32 +1,32 @@
 [
   {
     "id":1,
-    "name":"Toalha de Microfibra M",
+    "title":"Toalha de Microfibra M",
     "code":"8543246",
     "size":"M",
     "status":"disponivel",
     "price":70.00,
     "description":"Toalha de microfibra tamanho médio. Prática, compacta e com boa absorção. 80x130cm",
-    "photo": "spec/support/images/toalha.jpeg"
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
   },
   {
     "id":2,
-    "name":"Garrafa de trilha 600ml",
+    "title":"Garrafa de trilha 600ml",
     "code":"5976423",
     "size":"U",
     "status":"disponivel",
     "price":50.00,
     "description":"Garrafa abre facil com suporte e medida",
-    "photo": "spec/support/images/garrafa.jpeg"
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
   },
   {
     "id":3,
-    "name":"Mochila cinza",
+    "title":"Mochila cinza",
     "code":"7894561",
     "sizes": "U",
     "status":"disponivel",
     "price":180.00,
     "description":"Mochila para trilha na cor cinza",
-    "photo": "spec/support/images/mochila.jpeg"
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
   }
 ]

@@ -5,6 +5,10 @@
   <li>Rails 7.0.4</li>
 </ul>
 
+* Usuário administrador cadastrado:(email: 'admin@email.com', password: 'password', name: 'Anita')
+
+* Usuário regular cadastrado:(email: 'maria@email.com', password: 'password', name: 'Maria')
+
 
 <h3>Introdução</h3>
 O projeto visa construir uma aplicação para praticar meus conhecimentos de programação onde um administrador poderá compartilhar as experiências e dicas  de viagem e outros usuários cadastrados poderão avaliar os lugares/ comércios e incluir comentários e notas. 

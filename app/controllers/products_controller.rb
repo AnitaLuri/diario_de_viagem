@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    response = Faraday.get('http://localhost:4000/api/v1/products')
+    response = Faraday.get('https://fakestoreapi.com/products')
     @products = JSON.parse(response.body)
   end
 end
