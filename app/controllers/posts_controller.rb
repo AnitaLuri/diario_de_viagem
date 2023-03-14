@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   def search
     @search = params['query']
     @posts = Post.where('country LIKE ?', "%#{@search.upcase}%")
+    @posts = Post.where('title LIKE ?', "%#{@search.capitalize}%") unless @posts.any?
     @posts = Post.where('state LIKE ?', "%#{@search.upcase}%") unless @posts.any?
     @posts = Post.where('city LIKE ?', "%#{@search}%") unless @posts.any?
   end

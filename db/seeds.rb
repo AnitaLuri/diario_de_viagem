@@ -1,3 +1,6 @@
+admin = User.create!(email: 'admin@email.com', password: 'password', name: 'Anita', role: :admin)
+user = User.create!(email: 'maria@email.com', password: 'password', name: 'Maria', role: :regular)
+
 praia = Category.create!(name: 'Praia')
 cidade = Category.create!(name: 'Cidade')
 montanha = Category.create!(name: 'Montanhas')
