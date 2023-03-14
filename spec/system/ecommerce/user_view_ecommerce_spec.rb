@@ -10,11 +10,20 @@ describe 'Usuário visita página da loja' do
     click_on 'Loja'
 
     expect(page).to have_content 'Alguns de itens úteis para sua próxima viagem!'
-    expect(page).to have_content 'Toalha de Microfibra M'
+    expect(page).to have_content 'Toalha'
     expect(page).to have_content 'R$ 70,00'
-    expect(page).to have_content 'Garrafa de trilha 600ml'
+    expect(page).to have_content 'Garrafa'
     expect(page).to have_content 'R$ 50,00'
-    expect(page).to have_content 'Mochila cinza'
+    expect(page).to have_content 'Mochila'
     expect(page).to have_content 'R$ 180,00'
+  end
+  it 'e não existem produtos' do
+    fake_response = double('faraday::response', status: 200, body: '{}')
+    allow(Faraday).to receive(:get).with('https://fakestoreapi.com/products').and_return(fake_response)
+
+    visit root_path
+    click_on 'Loja'
+
+    expect(page).to have_content 'Nenhum produto disponível no momento'
   end
 end

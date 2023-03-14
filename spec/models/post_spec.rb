@@ -75,6 +75,17 @@ RSpec.describe Post, type: :model do
       expect(post_a.valid?).to eq false
       expect(post_b.valid?).to eq false
     end
+    it 'falso quando title já existe' do
+      praia = Category.create!(name: 'Praia')
+      Post.create!(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
+                   text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
+                   restaurant_tip: '', tour_tip: 'Paraty-mirim')
+      post = Post.new(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,
+                      text: 'Paraty fica na costa sudeste do Brasil, 200 quilômetros ao sul do Rio.',
+                      restaurant_tip: '', tour_tip: 'Paraty-mirim')
+
+      expect(post.valid?).to eq false
+    end
     it 'verdadeiro quando dica de restaurante fica em branco' do
       praia = Category.create!(name: 'Praia')
       post = Post.new(title: 'Paraty', country: 'BRA', state: 'RJ', city: 'Paraty', category: praia,

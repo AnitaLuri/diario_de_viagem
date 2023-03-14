@@ -27,3 +27,5 @@ services:
       - diario_de_viagem_data:/var/lib/postgresql/data
 volumes:
   diario_de_viagem_data:
+networks:
+  rede: {}
