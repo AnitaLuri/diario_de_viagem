@@ -1,0 +1,20 @@
+<div class="form">
+  <%= form_with(model: @category) do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, class: "form-label fw-semibold" %>
+      <%= f.text_field :name, class: "form-control" %>
+      <% if(@category.errors.include? :name) %>
+        <div class=" my-3 alert alert-danger">
+          <ul>
+            <% @category.errors.full_messages_for(:name).each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+    <div class="d-grid mb-3">
+      <%= f.submit class: "button" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<% if @categories.present? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= Service.human_attribute_name(:code) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-secondary text-center">
+    <%= t '.message' %>
+  </div>
+<% end %>
