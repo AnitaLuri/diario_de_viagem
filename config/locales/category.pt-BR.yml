@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      category: Categoria
+    attributes:
+      category:
+        name: Nome da Categoria
+  categories:
+    create:
+      success: 'Categoria criada com sucesso!'
+      failure: 'Categoria não foi criada'
+    new:
+      authorization_failure: 'Apenas usuários administradores tem acesso a essa função'

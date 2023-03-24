@@ -1,0 +1,10 @@
+pt-BR:
+  categories:
+    authorization_failure: 'Apenas usuários administradores tem acesso a essa função'
+    new:
+      title: 'Criar Nova Categoria'
+      message: 'Não existem categorias cadastradas!'
+      register: 'Criar Categoria'
+    create:
+      success: 'Categoria cadastrado com sucesso'
+      failure: 'Não foi possível cadastrar a categoria'
